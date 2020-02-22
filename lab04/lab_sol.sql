@@ -9,7 +9,8 @@ select ocid from OrderBook WHERE qty > 4;select qty_in_stock from Book where qty
     <any(select qty_in_stock from Book)
 
 --Q3
---?
+select ocid from OrderBook GROUP BY ocid HAVING timestampdiff(year, max(orderdate), curdate()) < 7;
+
 --Q4
 select ocid from OrderBook WHERE oisbn = (select isbn from Book WHERE title = "Operating Systems");
 
